@@ -32,11 +32,11 @@ class Url
         return $controll;
     }
 
-    public function getFile() : String
+    public function getFile()# : String
     {
         $file = $this->getController();
         if (count($file) == 1) {
-            $file = $file == ['home'] ? 'apps/home.php': 'apps/'.$file[0].'/home.php';
+            $file = $file == ['home'] || $file == ['logout'] ? 'apps/'.$file[0].'.php': 'apps/'.$file[0].'/home.php';
         } else {
             $file = 'apps/'.$file[0].'/'.$file[1].'.php';
         }
