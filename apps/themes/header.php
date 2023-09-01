@@ -7,5 +7,10 @@
 </head>
 <body>
     <center>
-        <a href="index.php">Home</a> |
+        <a href="index.php">Home</a> | 
+        <a href="index.php?p=kelas">Kelas</a> | 
+        <a href="index.php?p=spp">Spp</a> | 
+        <a href="index.php?p=siswa">Siswa</a> | 
+        <a href="index.php?p=petugas">Petugas</a> | 
+        <a href="index.php?p=pembayaran">Pembayaran</a> | 
         <a href="index.php?p=logout">Logout</a>

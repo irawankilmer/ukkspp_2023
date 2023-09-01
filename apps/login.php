@@ -1,5 +1,6 @@
 <?php 
 include '../core/init.php';
+$auth->checkCookie();
 $auth->checkIsLogin();
 $error = isset($_POST['login']) ? $auth->login($_POST) : false;
 ?>
