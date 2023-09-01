@@ -1,0 +1,1 @@
+<h1>Anda tidak berhak masuk ke halaman ini</h1>

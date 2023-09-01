@@ -32,7 +32,7 @@ class Url
         return $controll;
     }
 
-    public function getFile()# : String
+    public function getFile($level) : String
     {
         $file = $this->getController();
         if (count($file) == 1) {
@@ -41,7 +41,13 @@ class Url
             $file = 'apps/'.$file[0].'/'.$file[1].'.php';
         }
 
-        return file_exists($file) ? $file: 'apps/notfound.php';
+        if (file_exists($file)) {
+            $file = $this->accessControll($level) ? $file : 'apps/notaccess.php';
+        } else {
+            $file = 'apps/notfound.php';
+        }
+
+        return $file;
     }
 
     public function getParam() : Int
@@ -57,5 +63,18 @@ class Url
         $title = count($title) == 2 ? $title[1].' - '.$title[0]: $title[0];
 
         return ucfirst($title);
+    }
+
+    public function accessControll($level)
+    {
+        $url = $this->getUrl();
+        $controll = [
+            'Admin'     => ['', 'home', 'spp', 'kelas', 'siswa', 'petugas', 'pembayaran', 'logout'],
+            'Petugas'   => ['', 'home', 'pembayaran', 'logout'],
+            'Siswa'     => ['', 'home', 'logout']
+        ];
+
+        return array_search($url[0], $controll[$level]);
+
     }
 }
